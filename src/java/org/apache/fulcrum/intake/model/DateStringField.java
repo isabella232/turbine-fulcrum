@@ -54,13 +54,12 @@ package org.apache.fulcrum.intake.model;
  * <http://www.apache.org/>.
  */
 
-import java.util.Date;
 import java.text.DateFormat;
 import java.text.ParseException;
+import java.util.Date;
+
 import org.apache.fulcrum.intake.validator.DateStringValidator;
-import org.apache.fulcrum.intake.xmlmodel.Rule;
 import org.apache.fulcrum.intake.xmlmodel.XmlField;
-import org.apache.fulcrum.util.parser.ValueParser;
 
 /**  
  * Field for date inputs as free form text.  The parsing of date strings

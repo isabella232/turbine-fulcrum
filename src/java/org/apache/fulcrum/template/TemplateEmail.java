@@ -54,14 +54,15 @@ package org.apache.fulcrum.template;
  * <http://www.apache.org/>.
  */
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Iterator;
 import java.io.StringWriter;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
 import javax.mail.internet.InternetAddress;
-import org.apache.commons.mail.SimpleEmail;
-import org.apache.commons.lang.StringUtils;
+
 import org.apache.commons.lang.WordUtils;
+import org.apache.commons.mail.SimpleEmail;
 import org.apache.fulcrum.ServiceException;
 
 /**

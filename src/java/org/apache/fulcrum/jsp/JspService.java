@@ -55,8 +55,6 @@ package org.apache.fulcrum.jsp;
  */
 
 import org.apache.fulcrum.Service;
-//import org.apache.turbine.RunData;
-import org.apache.fulcrum.ServiceException;
 
 /**
  * Implementations of the JspService interface.

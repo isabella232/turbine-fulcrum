@@ -55,8 +55,6 @@ package org.apache.fulcrum.velocity;
  */
 
 import org.apache.fulcrum.template.TemplateContext;
-
-import org.apache.velocity.context.Context;
 import org.apache.velocity.context.AbstractContext;
 
 /**

@@ -54,19 +54,17 @@ package org.apache.fulcrum.localization;
  * <http://www.apache.org/>.
  */
 
-import java.util.ListResourceBundle;
 import java.util.Locale;
 import java.util.MissingResourceException;
-import java.util.ResourceBundle;
-
-import org.apache.fulcrum.ServiceManager;
-import org.apache.fulcrum.TurbineServices;
-import org.apache.commons.configuration.BaseConfiguration;
-import org.apache.commons.configuration.Configuration;
 
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
+
+import org.apache.commons.configuration.BaseConfiguration;
+import org.apache.commons.configuration.Configuration;
+import org.apache.fulcrum.ServiceManager;
+import org.apache.fulcrum.TurbineServices;
 
 /**
  * Tests the API of the

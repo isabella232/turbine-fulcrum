@@ -54,10 +54,10 @@ package org.apache.fulcrum.intake.validator;
  * <http://www.apache.org/>.
  */
 
-import java.math.BigDecimal;
 import java.util.Map;
-import org.apache.torque.om.NumberKey;
+
 import org.apache.fulcrum.ServiceException;
+import org.apache.torque.om.NumberKey;
 
 /**
  * Validates numbers with the following constraints in addition to those

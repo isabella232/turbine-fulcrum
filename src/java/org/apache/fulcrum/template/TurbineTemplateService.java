@@ -58,11 +58,10 @@ import java.io.File;
 import java.io.OutputStream;
 import java.io.Writer;
 import java.util.HashMap;
-import java.util.Hashtable;
-import org.apache.fulcrum.ServiceException;
+
 import org.apache.fulcrum.BaseService;
 import org.apache.fulcrum.InitializationException;
-import org.apache.fulcrum.template.TemplateContext;
+import org.apache.fulcrum.ServiceException;
 
 /**
  * This service provides a method for mapping templates to their

@@ -56,7 +56,7 @@ package org.apache.fulcrum.intake.validator;
 
 import java.math.BigDecimal;
 import java.util.Map;
-import org.apache.torque.om.NumberKey;
+
 import org.apache.fulcrum.ServiceException;
 
 /**

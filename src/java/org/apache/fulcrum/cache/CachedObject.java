@@ -64,8 +64,7 @@ import java.io.Serializable;
  * @author <a href="mailto:hps@intermeta.de">Henning P. Schmiedehausen</a>
  * @version $Id$
  */
-public class CachedObject
-    implements java.io.Serializable
+public class CachedObject implements Serializable
 {
 
     /** Cache the object with the Default TTL */

@@ -54,11 +54,11 @@ package org.apache.fulcrum.localization;
  * <http://www.apache.org/>.
  */
 
-import javax.servlet.http.HttpServletRequest;
 import java.util.Locale;
 import java.util.ResourceBundle;
-import org.apache.fulcrum.Service;
-import org.apache.fulcrum.ServiceBroker;
+
+import javax.servlet.http.HttpServletRequest;
+
 import org.apache.fulcrum.TurbineServices;
 
 /**

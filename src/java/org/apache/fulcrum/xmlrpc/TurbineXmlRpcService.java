@@ -59,25 +59,22 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.InetAddress;
 import java.net.Socket;
-import java.net.UnknownHostException;
 import java.net.URL;
+import java.net.UnknownHostException;
 import java.util.Iterator;
 import java.util.Vector;
 
+import org.apache.commons.configuration.Configuration;
 import org.apache.fulcrum.BaseService;
 import org.apache.fulcrum.InitializationException;
-import org.apache.fulcrum.ServiceBroker;
-import org.apache.fulcrum.xmlrpc.util.FileTransfer;
 import org.apache.fulcrum.ServiceException;
+import org.apache.fulcrum.xmlrpc.util.FileTransfer;
 import org.apache.xmlrpc.WebServer;
 import org.apache.xmlrpc.XmlRpc;
 import org.apache.xmlrpc.XmlRpcClient;
 import org.apache.xmlrpc.XmlRpcException;
 import org.apache.xmlrpc.XmlRpcServer;
 import org.apache.xmlrpc.secure.SecureWebServer;
-import org.apache.xmlrpc.secure.SecurityTool;
-
-import org.apache.commons.configuration.Configuration;
 
 /**
  * This is a service which will make an xml-rpc call to a remote server.

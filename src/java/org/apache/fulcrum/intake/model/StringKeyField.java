@@ -54,10 +54,9 @@ package org.apache.fulcrum.intake.model;
  * <http://www.apache.org/>.
  */
 
-import org.apache.torque.om.StringKey;
 import org.apache.fulcrum.intake.xmlmodel.XmlField;
-import org.apache.fulcrum.util.parser.ValueParser;
 import org.apache.log4j.Category;
+import org.apache.torque.om.StringKey;
 
 /**
  * @author <a href="mailto:jmcnally@collab.net">John McNally</a>

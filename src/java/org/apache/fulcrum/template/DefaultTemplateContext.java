@@ -55,8 +55,6 @@ package org.apache.fulcrum.template;
  */
 
 import java.util.HashMap;
-import java.util.List;
-import java.util.Iterator;
 
 /**
  *  General purpose implemention of the application Context

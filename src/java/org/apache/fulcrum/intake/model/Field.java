@@ -54,23 +54,20 @@ package org.apache.fulcrum.intake.model;
  * <http://www.apache.org/>.
  */
 
-import java.util.Locale;
-import java.util.Map;
 import java.lang.reflect.Method;
+import java.util.Locale;
 
-import org.apache.regexp.RE;
 import org.apache.fulcrum.ServiceException;
 import org.apache.fulcrum.TurbineServices;
-import org.apache.fulcrum.localization.Localization;
-import org.apache.fulcrum.localization.LocalizationService;
 import org.apache.fulcrum.intake.Retrievable;
 import org.apache.fulcrum.intake.TurbineIntake;
-import org.apache.fulcrum.intake.xmlmodel.Rule;
-import org.apache.fulcrum.intake.xmlmodel.XmlField;
-import org.apache.fulcrum.intake.xmlmodel.XmlGroup;
-import org.apache.fulcrum.intake.validator.Validator;
 import org.apache.fulcrum.intake.validator.InitableByConstraintMap;
 import org.apache.fulcrum.intake.validator.ValidationException;
+import org.apache.fulcrum.intake.validator.Validator;
+import org.apache.fulcrum.intake.xmlmodel.Rule;
+import org.apache.fulcrum.intake.xmlmodel.XmlField;
+import org.apache.fulcrum.localization.Localization;
+import org.apache.fulcrum.localization.LocalizationService;
 import org.apache.fulcrum.util.parser.ParameterParser;
 import org.apache.fulcrum.util.parser.ValueParser;
 import org.apache.log4j.Category;

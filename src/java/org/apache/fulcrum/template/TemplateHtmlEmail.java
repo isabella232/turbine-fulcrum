@@ -56,10 +56,10 @@ package org.apache.fulcrum.template;
 
 import java.net.URL;
 import java.util.Hashtable;
+
 import javax.mail.MessagingException;
 
 import org.apache.commons.mail.HtmlEmail;
-import org.apache.commons.mail.MultiPartEmail;
 
 /**
  * This is a simple class for sending html email from within the TemplateService.

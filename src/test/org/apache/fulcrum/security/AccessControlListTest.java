@@ -54,28 +54,20 @@ package org.apache.fulcrum.security;
  * <http://www.apache.org/>.
  */
 
-import junit.framework.TestCase;
-
 import java.util.HashMap;
 import java.util.Map;
 
+import junit.framework.TestCase;
+
 import org.apache.commons.configuration.BaseConfiguration;
 import org.apache.commons.configuration.Configuration;
-
 import org.apache.fulcrum.ServiceManager;
 import org.apache.fulcrum.TurbineServices;
-
-import org.apache.fulcrum.factory.FactoryService; 
-import org.apache.fulcrum.factory.TurbineFactoryService; 
-
-import org.apache.fulcrum.security.SecurityService;
-
-import org.apache.fulcrum.security.entity.Group;
-
-import org.apache.fulcrum.security.util.AccessControlList;
+import org.apache.fulcrum.factory.FactoryService;
+import org.apache.fulcrum.factory.TurbineFactoryService;
 import org.apache.fulcrum.security.impl.TurbineAccessControlList;
-
 import org.apache.fulcrum.security.impl.db.DBSecurityService;
+import org.apache.fulcrum.security.util.AccessControlList;
 
 public class AccessControlListTest
     extends TestCase

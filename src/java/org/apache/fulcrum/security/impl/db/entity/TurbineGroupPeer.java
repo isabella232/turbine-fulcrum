@@ -56,13 +56,13 @@ package org.apache.fulcrum.security.impl.db.entity;
 
 // JDK classes
 import java.util.List;
-import org.apache.fulcrum.security.impl.db.entity.map.TurbineGroupMapBuilder;
-import org.apache.torque.util.BasePeer;
-import org.apache.torque.util.Criteria;
+
 import org.apache.fulcrum.security.entity.Group;
 import org.apache.fulcrum.security.entity.SecurityEntity;
-import org.apache.fulcrum.security.util.GroupSet;
 import org.apache.fulcrum.security.util.DataBackendException;
+import org.apache.fulcrum.security.util.GroupSet;
+import org.apache.torque.util.BasePeer;
+import org.apache.torque.util.Criteria;
 
 /**
  * This class handles all the database access for the Group table.

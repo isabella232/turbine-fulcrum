@@ -56,7 +56,7 @@ package org.apache.fulcrum.xslt;
 
 import java.io.Reader;
 import java.io.Writer;
-import org.apache.fulcrum.Service;
+
 import org.apache.fulcrum.TurbineServices;
 import org.w3c.dom.Node;
 

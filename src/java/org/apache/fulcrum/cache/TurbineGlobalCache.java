@@ -55,7 +55,7 @@ package org.apache.fulcrum.cache;
  */
 
 import java.io.IOException;
-import org.apache.fulcrum.Service;
+
 import org.apache.fulcrum.TurbineServices;
 
 /**

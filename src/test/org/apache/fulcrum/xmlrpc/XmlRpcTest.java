@@ -55,16 +55,14 @@ package org.apache.fulcrum.xmlrpc;
  */
 
 import java.io.IOException;
-import junit.framework.Test;
+
 import junit.framework.TestCase;
-import junit.framework.TestSuite;
+
 import org.apache.commons.configuration.PropertiesConfiguration;
 import org.apache.fulcrum.Fulcrum;
+import org.apache.fulcrum.InstantiationException;
 import org.apache.fulcrum.ServiceManager;
 import org.apache.fulcrum.TurbineServices;
-import org.apache.fulcrum.InstantiationException;
-import org.apache.fulcrum.xmlrpc.TurbineXmlRpc;
-import org.apache.fulcrum.xmlrpc.XmlRpcService;
 
 /**
  * Tests the API of the

@@ -55,12 +55,10 @@ package org.apache.fulcrum.intake.model;
  */
 
 import java.math.BigDecimal;
-import org.apache.torque.om.NumberKey;
-import org.apache.torque.om.ObjectKey;
-import org.apache.fulcrum.intake.xmlmodel.Rule;
+
 import org.apache.fulcrum.intake.xmlmodel.XmlField;
-import org.apache.fulcrum.util.parser.ValueParser;
 import org.apache.log4j.Category;
+import org.apache.torque.om.NumberKey;
 
 /**
  * @author <a href="mailto:jmcnally@collab.net">John McNally</a>

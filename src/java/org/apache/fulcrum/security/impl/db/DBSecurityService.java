@@ -56,38 +56,26 @@ package org.apache.fulcrum.security.impl.db;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Hashtable;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import java.util.Vector;
-
-import org.apache.fulcrum.BaseService;
 
 import org.apache.fulcrum.security.BaseSecurityService;
 import org.apache.fulcrum.security.TurbineSecurity;
-
 import org.apache.fulcrum.security.entity.Group;
 import org.apache.fulcrum.security.entity.Permission;
 import org.apache.fulcrum.security.entity.Role;
 import org.apache.fulcrum.security.entity.SecurityEntity;
 import org.apache.fulcrum.security.entity.User;
-
-import org.apache.fulcrum.security.impl.db.entity.TurbineGroup;
 import org.apache.fulcrum.security.impl.db.entity.TurbineGroup;
 import org.apache.fulcrum.security.impl.db.entity.TurbineGroupPeer;
 import org.apache.fulcrum.security.impl.db.entity.TurbinePermission;
-import org.apache.fulcrum.security.impl.db.entity.TurbinePermission;
 import org.apache.fulcrum.security.impl.db.entity.TurbinePermissionPeer;
-import org.apache.fulcrum.security.impl.db.entity.TurbineRole;
 import org.apache.fulcrum.security.impl.db.entity.TurbineRole;
 import org.apache.fulcrum.security.impl.db.entity.TurbineRolePeer;
 import org.apache.fulcrum.security.impl.db.entity.TurbineRolePermissionPeer;
 import org.apache.fulcrum.security.impl.db.entity.TurbineUserGroupRolePeer;
 import org.apache.fulcrum.security.impl.db.entity.UserPeer;
-
 import org.apache.fulcrum.security.util.AccessControlList;
 import org.apache.fulcrum.security.util.DataBackendException;
 import org.apache.fulcrum.security.util.EntityExistsException;
@@ -95,13 +83,9 @@ import org.apache.fulcrum.security.util.GroupSet;
 import org.apache.fulcrum.security.util.PermissionSet;
 import org.apache.fulcrum.security.util.RoleSet;
 import org.apache.fulcrum.security.util.UnknownEntityException;
-
 import org.apache.log4j.Category;
-
 import org.apache.torque.om.BaseObject;
 import org.apache.torque.om.ObjectKey;
-
-import org.apache.torque.util.BasePeer;
 import org.apache.torque.util.Criteria;
 
 /**
