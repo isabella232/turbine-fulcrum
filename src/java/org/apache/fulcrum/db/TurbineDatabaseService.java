@@ -233,6 +233,6 @@ public class TurbineDatabaseService
 
     public String getDefaultMap()
     {
-        return Torque.getDefaultMap();
+        return Torque.getDefaultDB();
     }
 }

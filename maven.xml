@@ -135,6 +135,7 @@
       outputFile="report.turbine.scheduler.generation"
       targetPackage="${schedulerPackage}"
       xmlFile="${maven.prepareSourceDirectory}/scheduler-schema.xml"
+      targetDatabase="${database}"
     />
 
   </goal>
