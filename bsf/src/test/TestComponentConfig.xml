@@ -1,4 +1,0 @@
-<componentConfig>
-    <bsf use-property-file="true"
-     scriptsDirectory="WEB-INF/scripts" defaultExtension="py"/>
-</componentConfig>
