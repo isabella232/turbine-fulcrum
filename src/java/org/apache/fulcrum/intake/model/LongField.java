@@ -64,20 +64,20 @@ import org.apache.log4j.Category;
  * @author <a href="mailto:hps@intermeta.de">Henning P. Schmiedehausen</a>
  * @version $Id$
  */
-public class IntegerField 
+public class LongField 
     extends Field
 {
     /** Log4j category */
     Category category = Category.getInstance(getClass().getName());
 
-    public IntegerField(XmlField field, Group group)
+    public LongField(XmlField field, Group group)
         throws Exception
     {
         super(field, group);
     }
 
     /**
-     * Sets the default value for an Integer Field
+     * Sets the default value for an Long Field
      *
      * @param prop Parameter for the default values
      */
@@ -92,12 +92,12 @@ public class IntegerField
 
         try
         {
-            defaultValue = new Integer(prop);
+            defaultValue = new Long(prop);
         }
         catch (Exception e)
         {
             category.error("Could not convert "
-                           + prop + " into an Integer. ("
+                           + prop + " into an Long. ("
                            + name + ")");
         }
     }
@@ -105,11 +105,11 @@ public class IntegerField
     /**
      * A suitable validator.
      *
-     * @return "IntegerValidator"
+     * @return "LongValidator"
      */
     protected String getDefaultValidator()
     {
-        return "org.apache.fulcrum.intake.validator.IntegerValidator";
+        return "org.apache.fulcrum.intake.validator.LongValidator";
     }
 
     /**
@@ -122,24 +122,24 @@ public class IntegerField
             String[] ss = pp.getStrings(getKey());
             try 
             {            
-                Integer[] values = new Integer[ss.length];
+                Long[] values = new Long[ss.length];
                 for (int i=0; i<ss.length; i++)
                 {
                     if (ss[i] != null && ss[i].length() > 0) 
                     {
-                        values[i] = new Integer(ss[i]);
+                        values[i] = new Long(ss[i]);
                     }
                 }
                 setTestValue(values);
             }
             catch (ClassCastException e)
             {
-                int[] ival = new int[ss.length];
+                long[] ival = new long[ss.length];
                 for (int i=0; i<ss.length; i++)
                 {
                     if (ss[i] != null && ss[i].length() > 0) 
                     {
-                        ival[i] = Integer.parseInt(ss[i]);
+                        ival[i] = Long.parseLong(ss[i]);
                     }
                 }
                 setTestValue(ival);
@@ -150,7 +150,7 @@ public class IntegerField
             String s = pp.getString(getKey());
             if (s != null && s.length() > 0) 
             {
-                setTestValue(new Integer(s));
+                setTestValue(new Long(s));
             }
             else 
             {

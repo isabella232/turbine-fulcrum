@@ -145,7 +145,7 @@ public class Intake
             }
             catch(Exception e)
             {
-                category.error(e);
+                category.error("", e);
             }
         }
     }
@@ -291,7 +291,7 @@ public class Intake
             }
             catch(Exception e)
             {
-                category.error(e);
+                category.error("", e);
             }
 
             return null;

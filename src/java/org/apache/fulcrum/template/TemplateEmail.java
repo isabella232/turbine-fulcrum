@@ -61,7 +61,8 @@ import java.io.StringWriter;
 import javax.mail.internet.InternetAddress;
 import org.apache.commons.mail.SimpleEmail;
 import org.apache.commons.lang.StringUtils;
-import org.apache.commons.util.WordWrapper;
+import org.apache.commons.lang.WordWrapUtils;
+import org.apache.fulcrum.ServiceException;
 
 /**
  * This is a simple class for sending email from within the TemplateService.
@@ -164,6 +165,8 @@ public class TemplateEmail
     /** The cc list. */
     private List replyToList = null;
 
+    private List headersList;
+
     /** The column to word-wrap at.  <code>0</code> indicates no wrap. */
     private int wordWrap = 0;
 
@@ -199,6 +202,76 @@ public class TemplateEmail
         this.context = context;
     }
 
+    public String getCharSet()
+    {
+        return charset;
+    }
+
+    public String getTemplate()
+    {
+        return template;
+    }
+
+    public int getWordWrap()
+    {
+        return wordWrap;
+    }
+
+    public List getToList()
+    {
+        return toList == null ? toList = new ArrayList() : toList;
+    }
+
+    public void setToList(List v)
+    {
+        toList = v;
+    }
+
+    public List getCCList()
+    {
+        return ccList == null ? ccList = new ArrayList() : ccList;
+    }
+
+    public List getReplyToList()
+    {
+        return replyToList == null ? replyToList = new ArrayList(3) : replyToList;
+    }
+
+    public List getHeadersList()
+    {
+        return headersList == null ? headersList = new ArrayList(3) : headersList;
+    }
+
+    public String getToName()
+    {
+        return toName;
+    }
+
+    public String getToEmail()
+    {
+        return toEmail;
+    }
+
+    public String getFromName()
+    {
+        return fromName;
+    }
+
+    public String getFromEmail()
+    {
+        return fromEmail;
+    }
+
+    public String getCCName()
+    {
+        return ccName;
+    }
+
+    public String getCCEmail()
+    {
+        return ccEmail;
+    }
+
     /** Add a recipient TO to the email.
      *
      * @param email A String.
@@ -214,12 +287,7 @@ public class TemplateEmail
                 name = email;
             }
 
-            if (toList == null)
-            {
-                toList = new ArrayList();
-            }
-
-            toList.add(new InternetAddress(email, name));
+            getToList().add(new InternetAddress(email, name));
         }
         catch (Exception e)
         {
@@ -243,12 +311,7 @@ public class TemplateEmail
                 name = email;
             }
 
-            if (ccList == null)
-            {
-                ccList = new ArrayList();
-            }
-
-            ccList.add(new InternetAddress(email, name));
+            getCCList().add(new InternetAddress(email, name));
         }
         catch (Exception e)
         {
@@ -327,26 +390,22 @@ public class TemplateEmail
         String[] emailName = new String[2];
         emailName[0] = email;
         emailName[1] = name;
-        if (replyToList == null) 
-        {
-            replyToList = new ArrayList(3);
-        }        
-        replyToList.add(emailName);
+        getReplyToList().add(emailName);
         return this;
     }
 
-    private List headersList;
     public TemplateEmail addHeader(String name, String value)
     {
         String[] pair = new String[2];
         pair[0] = name;
         pair[1] = value;
-        if (headersList == null) 
-        {
-            headersList = new ArrayList(3);
-        }        
-        headersList.add(pair);
+        getHeadersList().add(pair);
         return this;
+    }
+
+    public String getSubject()
+    {
+        return this.subject;
     }
 
     /**
@@ -429,16 +488,24 @@ public class TemplateEmail
     public void send()
         throws Exception
     {
-        if (toEmail == null || toName == null)
+        if (getToEmail() == null || getToName() == null)
         {
             throw new Exception ("Must set a To:");
         }
 
         // this method is only supposed to send to one user (additional cc:
         // users are ok.)
-        toList = null;
+        setToList(null);
         addTo(toEmail, toName);
         sendMultiple();
+    }
+
+    protected String handleRequest()
+        throws ServiceException
+    {
+        StringWriter sw = new StringWriter();
+        TurbineTemplate.handleRequest(getContext(),getTemplate(),sw);
+        return sw.toString();
     }
 
     /**
@@ -447,43 +514,40 @@ public class TemplateEmail
     public void sendMultiple()
         throws Exception
     {
-        if (toList == null || toList.isEmpty())
+        if (getToList() == null || getToList().isEmpty())
         {
             throw new Exception ("Must set a To:");
         }
 
         // Process the template.
-        StringWriter sw = new StringWriter();
-        TurbineTemplate.handleRequest(context,template, sw);
-        String body = sw.toString();
+        String body = handleRequest();
 
         // If the caller desires word-wrapping, do it here
-        if (wordWrap > 0)
+        if (getWordWrap() > 0)
         {
-            body = WordWrapper.wrapText (body,
+            body = WordWrapUtils.wrapText (body,
                                      System.getProperty("line.separator"),
-                                     wordWrap);
+                                     getWordWrap());
         }
 
         SimpleEmail se = new SimpleEmail();
-        se.setFrom(fromEmail, fromName);
-        se.setTo(toList);
-        if (ccList != null && !ccList.isEmpty())
+        se.setFrom(getFromEmail(), getFromName());
+        se.setTo(getToList());
+        if (getCCList() != null && !getCCList().isEmpty())
         {
-            se.setCc(ccList);
+            se.setCc(getCCList());
         }
         addReplyTo(se);
-        if (charset != null) 
+        if (getCharSet() != null) 
         {
-            se.setCharset(charset);            
+            se.setCharset(getCharSet());            
         }
-        se.setSubject(subject);
+        se.setSubject(getSubject());
         se.setMsg(body);
 
-        if (headersList != null) 
+        if (getHeadersList() != null) 
         {
-            Iterator i = headersList.iterator();
-            while (i.hasNext()) 
+            for (Iterator i = getHeadersList().iterator();i.hasNext();) 
             {
                 String[] pair = (String[])i.next();
                 se.addHeader(pair[0], pair[1]);
@@ -502,10 +566,9 @@ public class TemplateEmail
     private void addReplyTo(SimpleEmail se)
         throws Exception
     {
-        if (replyToList != null) 
+        if (getReplyToList() != null) 
         {
-            Iterator i = replyToList.iterator();
-            while (i.hasNext()) 
+            for (Iterator i = getReplyToList().iterator();i.hasNext();) 
             {
                 String[] emailName = (String[])i.next();
                 se.addReplyTo(emailName[0], emailName[1]);

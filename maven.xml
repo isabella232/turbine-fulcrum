@@ -86,6 +86,7 @@
 </echo>
 
     <filter token="DATABASE_DEFAULT" value="${security.database.name}"/>
+    <filter token="DATABASE_JAVATYPE" value="${security.database.javatype}"/>
     <!-- is there a way to load this from an xml file? -->
     <filter token="EXTRA_USER_COLUMNS" value="${security.extra.user.columns}"/>
     <copy
