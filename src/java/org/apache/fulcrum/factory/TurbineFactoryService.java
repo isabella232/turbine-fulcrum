@@ -54,7 +54,6 @@ package org.apache.fulcrum.factory;
  * <http://www.apache.org/>.
  */
 
-import java.util.Map;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Vector;

@@ -54,25 +54,17 @@ package org.apache.fulcrum.upload;
  * <http://www.apache.org/>.
  */
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
 import java.io.File;
-import java.util.Map;
-import java.util.List;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Properties;
-import javax.servlet.ServletContext;
-import javax.servlet.ServletInputStream;
-import javax.servlet.ServletRequest;
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
-import org.apache.fulcrum.BaseService;
-import org.apache.fulcrum.ServiceException;
-import org.apache.fulcrum.InitializationException;
 
 import org.apache.commons.fileupload.FileUpload;
 import org.apache.commons.fileupload.FileUploadException;
+import org.apache.fulcrum.BaseService;
+import org.apache.fulcrum.InitializationException;
+import org.apache.fulcrum.ServiceException;
 
 /**
  * <p> This class is an implementation of {@link UploadService}.

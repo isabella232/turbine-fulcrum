@@ -59,16 +59,15 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
+
 import org.apache.commons.pool.BaseKeyedPoolableObjectFactory;
+import org.apache.fulcrum.ServiceException;
 import org.apache.fulcrum.intake.Retrievable;
 import org.apache.fulcrum.intake.TurbineIntake;
 import org.apache.fulcrum.intake.xmlmodel.AppData;
 import org.apache.fulcrum.intake.xmlmodel.XmlField;
 import org.apache.fulcrum.intake.xmlmodel.XmlGroup;
 import org.apache.fulcrum.util.parser.ValueParser;
-import org.apache.fulcrum.ServiceException;
-import org.apache.fulcrum.pool.Recyclable;
 import org.apache.log4j.Category;
 
 /** Holds a group of Fields */

@@ -54,18 +54,18 @@ package org.apache.fulcrum.security.impl.db.entity;
  * <http://www.apache.org/>.
  */
 
+import java.util.Enumeration;
 import java.util.List;
 import java.util.Vector;
-import java.util.Enumeration;
-import org.apache.fulcrum.security.impl.db.entity.map.TurbinePermissionMapBuilder;
-import org.apache.torque.om.BaseObject;
-import org.apache.torque.util.BasePeer;
-import org.apache.torque.util.Criteria;
+
 import org.apache.fulcrum.security.entity.Permission;
 import org.apache.fulcrum.security.entity.Role;
 import org.apache.fulcrum.security.entity.SecurityEntity;
 import org.apache.fulcrum.security.util.DataBackendException;
 import org.apache.fulcrum.security.util.PermissionSet;
+import org.apache.torque.om.BaseObject;
+import org.apache.torque.util.BasePeer;
+import org.apache.torque.util.Criteria;
 
 /**
  * This class handles all the database access for the PERMISSION

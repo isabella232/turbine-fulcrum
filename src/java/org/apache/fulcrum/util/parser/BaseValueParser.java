@@ -62,11 +62,10 @@ import java.lang.reflect.Method;
 import java.math.BigDecimal;
 import java.text.DateFormat;
 import java.text.ParseException;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.Enumeration;
-import java.util.GregorianCalendar;
 import java.util.Hashtable;
+
 import org.apache.fulcrum.pool.Recyclable;
 import org.apache.fulcrum.pool.RecyclableSupport;
 

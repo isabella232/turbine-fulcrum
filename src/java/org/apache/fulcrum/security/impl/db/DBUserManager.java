@@ -55,24 +55,19 @@ package org.apache.fulcrum.security.impl.db;
  */
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Iterator;
+import java.util.List;
 
-import org.apache.torque.om.BaseObject;
-import org.apache.torque.om.ObjectKey;
+import org.apache.fulcrum.security.TurbineSecurity;
+import org.apache.fulcrum.security.UserManager;
 import org.apache.fulcrum.security.entity.User;
 import org.apache.fulcrum.security.impl.db.entity.TurbineUser;
 import org.apache.fulcrum.security.impl.db.entity.TurbineUserPeer;
-
 import org.apache.fulcrum.security.util.DataBackendException;
-import org.apache.fulcrum.security.util.UnknownEntityException;
 import org.apache.fulcrum.security.util.EntityExistsException;
 import org.apache.fulcrum.security.util.PasswordMismatchException;
-
+import org.apache.fulcrum.security.util.UnknownEntityException;
 import org.apache.torque.util.Criteria;
-
-import org.apache.fulcrum.security.UserManager;
-import org.apache.fulcrum.security.TurbineSecurity;
 
 /**
  * An UserManager performs {@link org.apache.fulcrum.security.entity.User}

@@ -55,9 +55,7 @@ package org.apache.fulcrum.intake.validator;
  */
 
 import java.util.Map;
-
 import org.apache.fulcrum.ServiceException;
-import org.apache.torque.om.NumberKey;
 
 /**
  * Validates numbers with the following constraints in addition to those
@@ -65,9 +63,9 @@ import org.apache.torque.om.NumberKey;
  *
  * <table>
  * <tr><th>Name</th><th>Valid Values</th><th>Default Value</th></tr>
- * <tr><td>minValue</td><td>greater than Integer.MIN_VALUE</td>
+ * <tr><td>minValue</td><td>greater than Long.MIN_VALUE</td>
  * <td>&nbsp;</td></tr>
- * <tr><td>maxValue</td><td>less than BigDecimal.MAX_VALUE</td>
+ * <tr><td>maxValue</td><td>less than Long.MAX_VALUE</td>
  * <td>&nbsp;</td></tr>
  * <tr><td>notANumberMessage</td><td>Some text</td>
  * <td>Entry was not a valid number</td></tr>
@@ -76,22 +74,22 @@ import org.apache.torque.om.NumberKey;
  * @author <a href="mailto:jmcnally@collab.net>John McNally</a>
  * @version $Id$
  */
-public class NumberKeyValidator
+public class LongValidator
     extends NumberValidator
 {
-    private static String INVALID_NUMBER = "Entry was not valid.";
+    private static String INVALID_NUMBER = "Entry was not a valid integer";
 
-    private NumberKey minValue;
-    private NumberKey maxValue;
+    private long minValue;
+    private long maxValue;
 
-    public NumberKeyValidator(Map paramMap)
+    public LongValidator(Map paramMap)
         throws ServiceException
     {
         this();
         init(paramMap);
     }
 
-    public NumberKeyValidator()
+    public LongValidator()
     {
         // sets the default invalid number message
         super();
@@ -99,14 +97,14 @@ public class NumberKeyValidator
 
     protected void doInit(Map paramMap)
     {
-        minValue = null;
-        maxValue = null;
+        minValue = Long.MIN_VALUE;
+        maxValue = Long.MAX_VALUE;
 
         Constraint constraint = (Constraint)paramMap.get("minValue");
         if ( constraint != null )
         {
             String param = constraint.getValue();
-            minValue = new NumberKey(param);
+            minValue = Long.parseLong(param);
             minValueMessage = constraint.getMessage();
         }
 
@@ -114,7 +112,7 @@ public class NumberKeyValidator
         if ( constraint != null )
         {
             String param = constraint.getValue();
-            maxValue = new NumberKey(param);
+            maxValue = Long.parseLong(param);
             maxValueMessage = constraint.getMessage();
         }
     }
@@ -135,22 +133,23 @@ public class NumberKeyValidator
     protected void doAssertValidity(String testValue)
         throws ValidationException
     {
-        NumberKey nk = null;
+        long i = 0;
         try
         {
-            nk = new NumberKey(testValue);
+            i = Long.parseLong(testValue);
         }
         catch (RuntimeException e)
         {
             message = invalidNumberMessage;
             throw new ValidationException(invalidNumberMessage);
         }
-        if ( minValue != null && nk.compareTo(minValue) < 0 )
+
+        if ( i < minValue )
         {
             message = minValueMessage;
             throw new ValidationException(minValueMessage);
         }
-        if ( maxValue != null && nk.compareTo(maxValue) > 0 )
+        if ( i > maxValue )
         {
             message = maxValueMessage;
             throw new ValidationException(maxValueMessage);
@@ -166,7 +165,7 @@ public class NumberKeyValidator
      * Get the value of minValue.
      * @return value of minValue.
      */
-    public NumberKey getMinValue()
+    public long getMinValue()
     {
         return minValue;
     }
@@ -175,7 +174,7 @@ public class NumberKeyValidator
      * Set the value of minValue.
      * @param v  Value to assign to minValue.
      */
-    public void setMinValue(NumberKey  v)
+    public void setMinValue(long  v)
     {
         this.minValue = v;
     }
@@ -184,7 +183,7 @@ public class NumberKeyValidator
      * Get the value of maxValue.
      * @return value of maxValue.
      */
-    public NumberKey getMaxValue()
+    public long getMaxValue()
     {
         return maxValue;
     }
@@ -193,7 +192,7 @@ public class NumberKeyValidator
      * Set the value of maxValue.
      * @param v  Value to assign to maxValue.
      */
-    public void setMaxValue(NumberKey  v)
+    public void setMaxValue(long  v)
     {
         this.maxValue = v;
     }

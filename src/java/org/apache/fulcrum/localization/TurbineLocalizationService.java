@@ -55,19 +55,18 @@ package org.apache.fulcrum.localization;
  */
 
 import java.text.MessageFormat;
-import java.text.FieldPosition;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
 import java.util.MissingResourceException;
 import java.util.ResourceBundle;
-import java.util.StringTokenizer;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.lang.StringUtils;
-import org.apache.log4j.Category;
 import org.apache.fulcrum.BaseService;
 import org.apache.fulcrum.InitializationException;
+import org.apache.log4j.Category;
 
 /**
  * <p>This class is the single point of access to all localization

@@ -155,9 +155,7 @@ public class JobEntry
         int result = -1;
         if (je instanceof JobEntry)
         {
-            result = getJobId().getBigDecimal()
-            .compareTo(
-                ((JobEntry)je).getJobId().getBigDecimal());
+            result = new Integer(getJobId()).compareTo( new Integer(((JobEntry)je).getJobId()) );
         }
         return result;
     }

@@ -54,8 +54,6 @@ package org.apache.fulcrum.intake;
  * <http://www.apache.org/>.
  */
 
-import java.util.ArrayList;
-import java.util.Collection;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -145,7 +143,7 @@ public class Intake
             }
             catch(Exception e)
             {
-                category.error(e);
+                category.error("", e);
             }
         }
     }
@@ -291,7 +289,7 @@ public class Intake
             }
             catch(Exception e)
             {
-                category.error(e);
+                category.error("", e);
             }
 
             return null;

@@ -54,11 +54,11 @@ package org.apache.fulcrum.schedule;
  * <http://www.apache.org/>.
  */
 
-import java.util.List;
 import java.util.Vector;
+
+import org.apache.fulcrum.InitializationException;
 import org.apache.torque.om.NumberKey;
 import org.apache.torque.om.ObjectKey;
-import org.apache.fulcrum.InitializationException;
 
 /**
  * Service for a cron like scheduler that uses the

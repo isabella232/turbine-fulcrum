@@ -56,8 +56,8 @@ package org.apache.fulcrum.template;
 
 import java.io.OutputStream;
 import java.io.Writer;
-import java.util.Iterator;
 import java.util.Hashtable;
+
 import org.apache.fulcrum.BaseService;
 import org.apache.fulcrum.ServiceException;
 

@@ -100,6 +100,15 @@ public abstract class FieldFactory
                 }
             }
                        );
+        fieldCtors.put("long", new FieldFactory.FieldCtor()
+            {
+                public Field getInstance(XmlField f, Group g)
+                    throws Exception
+                {
+                    return new LongField(f, g);
+                }
+            }
+                       );
         fieldCtors.put("BigDecimal", new FieldFactory.FieldCtor()
             {
                 public Field getInstance(XmlField f, Group g)

@@ -56,11 +56,11 @@ package org.apache.fulcrum.velocity;
 
 import java.io.OutputStream;
 import java.io.Writer;
+
 import org.apache.fulcrum.Service;
 import org.apache.fulcrum.ServiceException;
-import org.apache.velocity.Template;
-import org.apache.velocity.context.Context;
 import org.apache.velocity.app.event.EventCartridge;
+import org.apache.velocity.context.Context;
 
 /**
  * The Turbine service interface to

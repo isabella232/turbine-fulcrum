@@ -54,122 +54,106 @@ package org.apache.fulcrum.intake.model;
  * <http://www.apache.org/>.
  */
 
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.util.Date;
-
-import org.apache.fulcrum.intake.validator.DateStringValidator;
 import org.apache.fulcrum.intake.xmlmodel.XmlField;
+import org.apache.log4j.Category;
 
-/**  
- * Field for date inputs as free form text.  The parsing of date strings
- * is dependent on any rules that are defined, so this field will expect that
- * any validator will be (or extend) DateStringValidator. 
- *
+/**
  * @author <a href="mailto:jmcnally@collab.net">John McNally</a>
  * @author <a href="mailto:hps@intermeta.de">Henning P. Schmiedehausen</a>
  * @version $Id$
  */
-public class DateStringField 
+public class LongField 
     extends Field
 {
-    private DateFormat df = null; 
+    /** Log4j category */
+    Category category = Category.getInstance(getClass().getName());
 
-    public DateStringField(XmlField field, Group group)
+    public LongField(XmlField field, Group group)
         throws Exception
     {
         super(field, group);
-        
-        if ( validator == null || !(validator instanceof DateStringValidator)) 
-        {
-            df = DateFormat.getInstance();
-            df.setLenient(true);
-        }
     }
 
     /**
-     * Sets the default value for a DateString field
+     * Sets the default value for an Long Field
      *
      * @param prop Parameter for the default values
      */
     protected void setDefaultValue(String prop)
     {
-        defaultValue = prop;
+        defaultValue = null;
+
+        if (prop == null)
+        {
+            return;
+        }
+
+        try
+        {
+            defaultValue = new Long(prop);
+        }
+        catch (Exception e)
+        {
+            category.error("Could not convert "
+                           + prop + " into an Long. ("
+                           + name + ")");
+        }
     }
 
     /**
      * A suitable validator.
      *
-     * @return "DateStringValidator"
+     * @return "LongValidator"
      */
     protected String getDefaultValidator()
     {
-        return "org.apache.fulcrum.intake.validator.DateStringValidator";
+        return "org.apache.fulcrum.intake.validator.LongValidator";
     }
 
     /**
      * converts the parameter to the correct Object.
      */
     protected void doSetValue()
-    {        
+    {
         if ( isMultiValued  )
         {
             String[] ss = pp.getStrings(getKey());
-            Date[] dates = new Date[ss.length];
-            for (int i=0; i<ss.length; i++)
-            {
-                dates[i] = getDate(ss[i]);
+            try 
+            {            
+                Long[] values = new Long[ss.length];
+                for (int i=0; i<ss.length; i++)
+                {
+                    if (ss[i] != null && ss[i].length() > 0) 
+                    {
+                        values[i] = new Long(ss[i]);
+                    }
+                }
+                setTestValue(values);
             }
-            setTestValue(dates);
+            catch (ClassCastException e)
+            {
+                long[] ival = new long[ss.length];
+                for (int i=0; i<ss.length; i++)
+                {
+                    if (ss[i] != null && ss[i].length() > 0) 
+                    {
+                        ival[i] = Long.parseLong(ss[i]);
+                    }
+                }
+                setTestValue(ival);
+            }
         }
         else
         {
-            setTestValue( getDate(pp.getString(getKey())) );
-        }
-    }
-
-    private Date getDate(String dateString)
-    {
-        Date date = null;
-        try
-        {
-            // FIXME: Canonicalize user-entered date strings.
-            if (validator != null && validator instanceof DateStringValidator)
+            String s = pp.getString(getKey());
+            if (s != null && s.length() > 0) 
             {
-                date = ((DateStringValidator)validator).parse(dateString);
+                setTestValue(new Long(s));
             }
             else 
             {
-                date = df.parse(dateString);
+                set_flag = false;
             }
         }
-        catch (ParseException e)
-        {
-            //ignore, return null
-        }
-        return date;
-    }
-
-    public String toString()
-    {
-        String s = null;
-        Object value = getValue();
-        if (value == null) 
-        {
-            s = "";
-        }
-        else if (value instanceof String) 
-        {
-            s = (String)value;
-        }
-        else if (validator != null && validator instanceof DateStringValidator) 
-        {
-            s= ((DateStringValidator)validator).format((Date)value);
-        }
-        else 
-        {
-            s = df.format((Date)value);
-        }
-        return s;
     }
 }

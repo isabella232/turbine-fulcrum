@@ -54,9 +54,7 @@ package org.apache.fulcrum.intake.model;
  * <http://www.apache.org/>.
  */
 
-import org.apache.fulcrum.intake.xmlmodel.Rule;
 import org.apache.fulcrum.intake.xmlmodel.XmlField;
-import org.apache.fulcrum.util.parser.ValueParser;
 import org.apache.log4j.Category;
 
 /**
@@ -120,15 +118,30 @@ public class IntegerField
         if ( isMultiValued  )
         {
             String[] ss = pp.getStrings(getKey());
-            int[] ival = new int[ss.length];
-            for (int i=0; i<ss.length; i++)
-            {
-                if (ss[i] != null && ss[i].length() > 0) 
+            try 
+            {            
+                Integer[] values = new Integer[ss.length];
+                for (int i=0; i<ss.length; i++)
                 {
-                    ival[i] = Integer.parseInt(ss[i]);
+                    if (ss[i] != null && ss[i].length() > 0) 
+                    {
+                        values[i] = new Integer(ss[i]);
+                    }
                 }
+                setTestValue(values);
             }
-            setTestValue(ival);
+            catch (ClassCastException e)
+            {
+                int[] ival = new int[ss.length];
+                for (int i=0; i<ss.length; i++)
+                {
+                    if (ss[i] != null && ss[i].length() > 0) 
+                    {
+                        ival[i] = Integer.parseInt(ss[i]);
+                    }
+                }
+                setTestValue(ival);
+            }
         }
         else
         {
