@@ -111,8 +111,8 @@
     </dependency>
     <dependency>
       <id>commons-configuration</id>
-      <version>20040130.152659</version>
-      <url>http://jakarta.apache.org/commons/</url>
+      <version>20040328.175011</version>
+      <url>http://jakarta.apache.org/commons/configuration/</url>
     </dependency>
     <dependency>
       <id>commons-email</id>
@@ -177,7 +177,7 @@
     </dependency>
     <dependency>
       <id>stratum</id>
-      <version>1.0-b3</version>
+      <version>1.0-b5-dev</version>
       <url>http://jakarta.apache.org/turbine/stratum/</url>
     </dependency>
     <dependency>
