@@ -1,3 +1,0 @@
-<componentConfig>
-    <HSQLService database="./src/test/test" dbname="test" trace="true" silent="false" port="9001"/>
-</componentConfig>
