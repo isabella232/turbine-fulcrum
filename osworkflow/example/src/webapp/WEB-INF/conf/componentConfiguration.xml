@@ -1,7 +1,0 @@
-
-<my-system>
-  <component
-    role="org.apache.fulcrum.osworkflow.WorkflowService"
-    class="org.apache.fulcrum.osworkflow.DefaultWorkflowService">
-  </component>
-</my-system>
