@@ -616,7 +616,7 @@ public abstract class BaseServiceBroker implements ServiceBroker
 
         if (service == null)
         {
-            String className = mapping.getString(name);
+            String className = mapping.getString(name, null);
 
             if (className == null || className.length() == 0)
             {
