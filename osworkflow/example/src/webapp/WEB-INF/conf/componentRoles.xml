@@ -1,6 +1,0 @@
-<role-list>
- <role
-    name="org.apache.fulcrum.osworkflow.WorkflowService"
-    shorthand="workflow"
-    default-class="org.apache.fulcrum.osworkflow.DefaultWorkflowService"/>   
-</role-list>

@@ -1,6 +1,0 @@
-target
-maven.log
-*.log
-.classpath
-.project
-*.ser
