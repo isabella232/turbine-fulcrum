@@ -1,7 +1,0 @@
-*.merlin
-target
-.classpath
-.cvsignore
-.project
-*.ser
-*.log
