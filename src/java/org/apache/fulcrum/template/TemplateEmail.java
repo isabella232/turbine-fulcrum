@@ -61,7 +61,7 @@ import java.io.StringWriter;
 import javax.mail.internet.InternetAddress;
 import org.apache.commons.mail.SimpleEmail;
 import org.apache.commons.lang.StringUtils;
-import org.apache.commons.lang.WordWrapUtils;
+import org.apache.commons.lang.WordUtils;
 import org.apache.fulcrum.ServiceException;
 
 /**
@@ -525,9 +525,7 @@ public class TemplateEmail
         // If the caller desires word-wrapping, do it here
         if (getWordWrap() > 0)
         {
-            body = WordWrapUtils.wrapText (body,
-                                     System.getProperty("line.separator"),
-                                     getWordWrap());
+            body = WordUtils.wrap(body, getWordWrap());
         }
 
         SimpleEmail se = new SimpleEmail();
