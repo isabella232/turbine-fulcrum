@@ -102,7 +102,7 @@
     </dependency>
     <dependency>
       <id>commons-collections</id>
-      <version>2.1</version>
+      <version>3.1</version>
       <url>http://jakarta.apache.org/commons/collections.html</url>
     </dependency>
     <dependency>
@@ -111,7 +111,7 @@
     </dependency>
     <dependency>
       <id>commons-configuration</id>
-      <version>20040328.175011</version>
+      <version>1.0</version>
       <url>http://jakarta.apache.org/commons/configuration/</url>
     </dependency>
     <dependency>
