@@ -288,7 +288,14 @@ public class TemplateEmail
                 name = email;
             }
 
-            getToList().add(new InternetAddress(email, name));
+            if (getCharSet() != null) 
+            {
+                getToList().add(new InternetAddress(email, name, getCharSet()));
+            }
+            else
+            {
+                getToList().add(new InternetAddress(email, name));
+            }
         }
         catch (Exception e)
         {
@@ -312,7 +319,14 @@ public class TemplateEmail
                 name = email;
             }
 
-            getCCList().add(new InternetAddress(email, name));
+            if (getCharSet() != null) 
+            {
+                getCCList().add(new InternetAddress(email, name, getCharSet()));
+            }
+            else
+            {
+                getCCList().add(new InternetAddress(email, name));
+            }
         }
         catch (Exception e)
         {
@@ -530,6 +544,10 @@ public class TemplateEmail
         }
 
         SimpleEmail se = new SimpleEmail();
+        if (getCharSet() != null) 
+        {
+            se.setCharset(getCharSet());            
+        }
         se.setFrom(getFromEmail(), getFromName());
         se.setTo(getToList());
         if (getCCList() != null && !getCCList().isEmpty())
@@ -537,10 +555,6 @@ public class TemplateEmail
             se.setCc(getCCList());
         }
         addReplyTo(se);
-        if (getCharSet() != null) 
-        {
-            se.setCharset(getCharSet());            
-        }
         se.setSubject(getSubject());
         se.setMsg(body);
 
