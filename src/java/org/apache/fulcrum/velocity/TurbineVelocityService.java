@@ -54,6 +54,7 @@ package org.apache.fulcrum.velocity;
  * <http://www.apache.org/>.
  */
 
+import java.util.List;
 import java.util.Vector;
 import java.util.Iterator;
 import java.util.Enumeration;
@@ -437,8 +438,8 @@ public class TurbineVelocityService
     {
         eventCartridge = new EventCartridge();
 
-        Vector ecconfig = getConfiguration()
-            .getVector("eventCartridge.classes", null);
+        List ecconfig = getConfiguration()
+            .getList("eventCartridge.classes", null);
         if (ecconfig == null)
         {
             getCategory().info("No Velocity EventCartridges configured.");
@@ -447,9 +448,9 @@ public class TurbineVelocityService
 
         Object obj = null;
         String className = null;
-        for (Enumeration e = ecconfig.elements() ; e.hasMoreElements() ;)
+        for (Iterator i = ecconfig.iterator() ; i.hasNext() ;)
         {
-            className = (String) e.nextElement();
+            className = (String) i.next();
             try
             {
                 boolean result = false;
@@ -527,12 +528,12 @@ public class TurbineVelocityService
         // Loop through all template paths, clear the corresponding
         // velocity properties and translate them all to the webapp space.
         int ind;
-        Vector paths;
+        List paths;
         String entry;
         for (Iterator i = keys.iterator(); i.hasNext();)
         {
             key = (String) i.next();
-            paths = getConfiguration().getVector(key,null);
+            paths = getConfiguration().getList(key,null);
             if (paths != null)
             {
                 velocityEngine.clearProperty(key);

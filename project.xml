@@ -111,7 +111,7 @@
     </dependency>
     <dependency>
       <id>commons-configuration</id>
-      <version>1.0-dev-3.20030607.194155</version>
+      <version>20040130.152659</version>
       <url>http://jakarta.apache.org/commons/</url>
     </dependency>
     <dependency>

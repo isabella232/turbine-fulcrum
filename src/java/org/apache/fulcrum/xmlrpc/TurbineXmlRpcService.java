@@ -62,6 +62,7 @@ import java.net.Socket;
 import java.net.URL;
 import java.net.UnknownHostException;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Vector;
 
 import org.apache.commons.configuration.Configuration;
@@ -201,8 +202,8 @@ public class TurbineXmlRpcService
                 // Set the list of clients that can connect
                 // to the xmlrpc server. The accepted client list
                 // will only be consulted if we are paranoid.
-                Vector acceptedClients =
-                    getConfiguration().getVector("acceptClient");
+                List acceptedClients =
+                    getConfiguration().getList("acceptClient");
 
                 for (int i = 0; i < acceptedClients.size(); i++)
                 {
@@ -219,8 +220,8 @@ public class TurbineXmlRpcService
                 // Set the list of clients that can connect
                 // to the xmlrpc server. The denied client list
                 // will only be consulted if we are paranoid.
-                Vector deniedClients =
-                    getConfiguration().getVector("denyClient");
+                List deniedClients =
+                    getConfiguration().getList("denyClient");
 
                 for (int i = 0; i < deniedClients.size(); i++)
                 {

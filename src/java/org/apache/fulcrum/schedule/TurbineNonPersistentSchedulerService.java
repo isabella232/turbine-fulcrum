@@ -54,6 +54,7 @@ package org.apache.fulcrum.schedule;
  * <http://www.apache.org/>.
  */
 
+import java.util.List;
 import java.util.Vector;
 
 import org.apache.fulcrum.InitializationException;
@@ -123,7 +124,7 @@ public class TurbineNonPersistentSchedulerService
             scheduleQueue = new JobQueue();
             mainLoop = new MainLoop();
 
-            Vector jobProps = getConfiguration().getVector("scheduler.jobs");
+            List jobProps = getConfiguration().getList("scheduler.jobs");
             Vector jobs = new Vector();
             // If there are scheduler.jobs defined then set up a job vector
             // for the scheduleQueue
@@ -131,7 +132,7 @@ public class TurbineNonPersistentSchedulerService
             {
                 for (int i=0;i<jobProps.size();i++)
                 {
-                    String jobName = (String)jobProps.elementAt(i);
+                    String jobName = (String)jobProps.get(i);
                     String jobPrefix = "scheduler.job." + jobName ;
 
                     if ( (getConfiguration().getString(jobPrefix + ".ID", null)) == null)

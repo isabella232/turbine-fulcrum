@@ -56,6 +56,7 @@ package org.apache.fulcrum.factory;
 
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Vector;
 import java.util.ArrayList;
 import java.io.ByteArrayInputStream;
@@ -149,7 +150,7 @@ public class TurbineFactoryService
     {
         if (getConfiguration() != null)
         {
-            Vector loaders = getConfiguration().getVector(CLASS_LOADERS);
+            List loaders = getConfiguration().getList(CLASS_LOADERS);
             if (loaders != null)
             {
                 for (int i = 0; i < loaders.size(); i++)
