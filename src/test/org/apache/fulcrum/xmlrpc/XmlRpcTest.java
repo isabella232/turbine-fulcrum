@@ -161,10 +161,7 @@ public class XmlRpcTest
             manager.setConfiguration(new PropertiesConfiguration(CONFIG_FILE));
             manager.init();
         }
-        catch (IOException ioe)
-        {
-            reportIOExceptionAndFail("Fulcrum",ioe);
-        }
+     
         catch (Exception e)
         {
             reportExceptionAndFail("Fulcrum",e);

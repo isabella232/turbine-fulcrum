@@ -125,7 +125,7 @@ public class TurbineMimeTypeService
     {
         String path = null;
 
-        if (getConfiguration() != null)
+        if (getConfiguration() != null && getConfiguration().containsKey(MIME_TYPES))
         {
             path = getConfiguration().getString(MIME_TYPES);
             if (path != null)
@@ -149,7 +149,7 @@ public class TurbineMimeTypeService
             mimeTypeMap = new MimeTypeMap();
         }
 
-        if (getConfiguration() != null)
+        if (getConfiguration() != null && getConfiguration().containsKey(CHARSETS))
         {
             path = getConfiguration().getString(CHARSETS);
             if (path != null)

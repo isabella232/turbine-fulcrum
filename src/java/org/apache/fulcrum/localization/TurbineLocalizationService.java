@@ -174,7 +174,7 @@ public class TurbineLocalizationService
         //System.err.println("cfg=" + getConfiguration());
         bundleNames =
             getConfiguration().getStringArray("locale.default.bundles");
-        String name = getConfiguration().getString("locale.default.bundle");
+        String name = getConfiguration().getString("locale.default.bundle",null);
         if (name != null && name.length() > 0)
         {
             // Using old-style single bundle name property.
