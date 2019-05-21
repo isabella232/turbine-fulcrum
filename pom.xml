@@ -41,7 +41,7 @@
 
   <scm>
     <connection>scm:svn:http://svn.apache.org/repos/asf/turbine/fulcrum/tags/fulcrum-mimetype-1.0.6/</connection>
-    <developerConnection>scm:svn: https://svn.apache.org/repos/asf/turbine/fulcrum/tags/fulcrum-mimetype-1.0.6</developerConnection>
+    <developerConnection>scm:svn:https://svn.apache.org/repos/asf/turbine/fulcrum/tags/fulcrum-mimetype-1.0.6</developerConnection>
     <url>http://svn.apache.org/viewvc/turbine/fulcrum/tags/fulcrum-mimetype-1.0.6</url>
   </scm>
 
